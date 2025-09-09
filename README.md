@@ -84,22 +84,34 @@ select sum(comments)from spotifyyy where licensed="true";
 5.** Find all tracks that belong to the album type `single`.**
 ```sql
 select track from spotifyyy where Album_type="single";
+
 select * from spotifyyy where Album_type="single";
 
 6.** Count the total number of tracks by each artist.**
 ``` sql
+
 select artist, count(*) from spotifyyy group by artist;
+
 ### Medium Level
+
 1.** Calculate the average danceability of tracks in each album.**
+
 ```sql
+
 select album, avg(danceability) from spotifyyy group by 1 order by 2 desc;
-2.** Find the top 5 tracks with the highest energy values.****
+
+2.** Find the top 5 tracks with the highest energy values.**
+
 ```sql
 select track, avg(energy) from spotifyyy group by 1 order by 2 desc limit 5;
+
 3.** List all tracks along with their views and likes where `official_video = TRUE`.**
+
 ```sql
 select track, sum(views), sum(likes) from spotifyyy where official_video ='true' group by 1 limit 5;
+
 4. **For each album, calculate the total views of all associated tracks.**
+
 ```sql
 select album, track, sum(views) from spotifyyy group by 1, 2 order by 3 desc;
 
